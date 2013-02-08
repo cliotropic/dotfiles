@@ -78,3 +78,7 @@
 
 [push]
 	default = simple
+	
+[user]
+        name = Shane Landrum
+        email = slandrum@fiu.edu
