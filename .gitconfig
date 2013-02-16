@@ -81,9 +81,6 @@
 
 # --- srl customizations ----
 	        
-[user]
-	name = Shane Landrum
-	email = srl@cliotropic.org
 [core]
 	editor = /usr/bin/edit -w
 
