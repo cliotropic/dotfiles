@@ -78,7 +78,17 @@
 
 [push]
 	default = simple
-	
+
+# --- srl customizations ----
+	        
 [user]
-        name = Shane Landrum
-        email = slandrum@fiu.edu
+	name = Shane Landrum
+	email = srl@cliotropic.org
+[core]
+	editor = /usr/bin/edit -w
+
+# not sure what this was about, so holding onto it for the future	
+# [remote "cliotropic"]
+#       url = ssh://cliotropic@git.cliotropic.org/~/projects/fieldworker_map.git
+#       fetch = +refs/heads/*:refs/remotes/dreamhost/*
+#       push = refs/heads/*
