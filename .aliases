@@ -133,4 +133,32 @@ alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 # srl aliases I like
 
-alias sb="source ~/.bashrc"
+alias vb='vim ~/.bashrc && source ~/.bashrc'
+alias sb='source ~/.bashrc'
+alias dh='ssh cliotropic@bluebombers.dreamhost.com'
+
+# rapper aliases from http://blog.datagraph.org/2010/04/transmuting-ntriples
+alias any2nt="rapper -i guess -o ntriples"         # Anything to N-Triples
+alias any2ttl="rapper -i guess -o turtle"          # Anything to Turtle
+alias any2rdf="rapper -i guess -o rdfxml-abbrev"   # Anything to RDF/XML
+alias any2json="rapper -i guess -o json"           # Anything to RDF/JSON
+alias nt2ttl="rapper -i ntriples -o turtle"        # N-Triples to Turtle
+alias nt2rdf="rapper -i ntriples -o rdfxml-abbrev" # N-Triples to RDF/XML
+alias nt2json="rapper -i ntriples -o json"         # N-Triples to RDF/JSON
+alias ttl2nt="rapper -i turtle -o ntriples"        # Turtle to N-Triples
+alias ttl2rdf="rapper -i turtle -o rdfxml-abbrev"  # Turtle to RDF/XML
+alias ttl2json="rapper -i turtle -o json"          # Turtle to RDF/JSON
+alias rdf2nt="rapper -i rdfxml -o ntriples"        # RDF/XML to N-Triples
+alias rdf2ttl="rapper -i rdfxml -o turtle"         # RDF/XML to Turtle
+alias rdf2json="rapper -i rdfxml -o json"          # RDF/XML to RDF/JSON
+alias json2nt="rapper -i json -o ntriples"         # RDF/JSON to N-Triples
+alias json2ttl="rapper -i json -o ntriples"        # RDF/JSON to N-Triples
+alias json2rdf="rapper -i json -o ntriples"        # RDF/JSON to N-Triples
+
+alias 7da="gcalcli agenda `date "+%x"` `date -v+7d "+%x"`"
+#alias dl='open ~/DISS/daily_logs/TODAYLOG.txt'
+alias dl='~/bin/dailylog.sh ed'
+
+#
+alias sync2simmons="rsync -avz --no-g --no-perms '/Users/srl/dissertation/teaching/fall 2010/2010-09 Fall History 140 Simmons College' /Volumes/Users/landrums/"
+

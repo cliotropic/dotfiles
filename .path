@@ -1,1 +1,13 @@
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.cabal/bin:/usr/local/texlive/2012/bin/x86_64-darwin/
+
+# MacPorts Installer addition on 2010-06-21_at_12:55:18: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# Settings for Mapnik.framework Installer to enable Mapnik programs and python bindings
+export PATH=/Library/Frameworks/Mapnik.framework/Programs:$PATH
+export PYTHONPATH=/Library/Frameworks/Mapnik.framework/Python:$PYTHONPATH
+
+
+
+

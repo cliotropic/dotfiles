@@ -9,6 +9,15 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 
+# Connect to ssh-agent 
+SSHAGENT=/usr/bin/ssh-agent
+SSHAGENTARGS="-s"
+if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+	eval `$SSHAGENT $SSHAGENTARGS`
+trap "kill $SSH_AGENT_PID" 0
+fi
+
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
@@ -37,3 +46,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+

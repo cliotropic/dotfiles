@@ -1,5 +1,5 @@
 # Make vim the default editor
-export EDITOR="vim"
+# export EDITOR="vim"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
@@ -17,3 +17,33 @@ export LESS_TERMCAP_md="$ORANGE"
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
+
+#------ srl legacy exports -------
+
+
+# defines emacsclient as editor
+#source /usr/share/emacs/21.2/etc/emacs.bash 
+export EDITOR=edit
+
+export PATH=/opt/perl-5.8.8/bin:/opt/local/bin:/sw/bin:/usr/local/git/bin:$PATH:/usr/local/bin:/usr/local/sbin
+export PERL5LIB=/Users/srl/lib/perl:/Users/srl/work/bp/jifty/lib:/Users/srl/lib/bp/lib
+
+export GEMSHOME=~/src/mygems
+
+export PYTHONPATH=~/lib/python:$PYTHONPATH:/opt/local/lib/python2.5/site-packages:/opt/local/lib/python2.6/site-packages:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages:~/lib/python/site-packages:~/lib/python2.6/site-packages:~/lib/python2.5/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.5:/usr/local/lib/python2.6/site-packages
+# For Mapnik 2.0.0
+export PYTHONPATH=/Library/Frameworks/Mapnik.framework/Python:$PYTHONPATH
+
+export SVKDIFF='diff -u'
+export TEXINPUTS=$TEXINPUTS:.:/Users/srl/etc/tex//
+export BIBTEXINPUTS=$BIBTEXINPUTS:.:/Users/srl/etc/bibtex
+export BPHOME=~/lib/bp
+export PATH=~/bin:$PATH
+export PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH
+
+
+# Fedora setup
+export FEDORA_HOME=~/dev/fedora
+export JAVA_HOME=/usr
+export PATH=$PATH:$FEDORA_HOME/server/bin:$FEDORA_HOME/client/bin
+export CATALINA_HOME=$FEDORA_HOME/tomcat

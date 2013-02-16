@@ -173,3 +173,45 @@ function tabname {
 function winname {
   printf "\e]2;$1\a"
 }
+
+# ---- srl legacy cruft --------
+
+unset -f mpo
+mpo() {
+	mmd2pdf $1.md
+	open $1.pdf
+}
+
+title() {
+    title=$1
+    echo -n -e "\033]0;$title\007"
+}
+
+# whatever works
+kittens() {
+    cd ~/DISS/drafts/kittens
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="WRITING - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    osascript -e "tell application \"Terminal\" to set background color of window 1 to {0,0,0,30000}"
+    edit --new-window complete_draft.tex NEXT_STEPS.md    
+}
+
+teach2042() {
+    cd ~/projects/teaching/2042
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="TEACHING - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    git pull origin master 
+}
+
+teachMAWH() {
+    cd ~/projects/teaching/MAWH
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="TEACHING - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    git pull origin master
+}

@@ -57,3 +57,10 @@ function parse_git_branch() {
 
 export PS1="\[${BOLD}${RED}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$BLUE\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
+
+# ----- srl legacy cruft ------
+
+# Prompts
+#export PS1='\h:\W \u\$ '
+#export PS2='> '
+#export PS4='+'
