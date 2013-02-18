@@ -134,3 +134,5 @@ alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 # srl aliases I like
 
 alias sb="source ~/.bashrc"
+
+alias teachgollum="pushd ~/teaching/ && gollum & sleep 3 && open http://localhost:4567 && popd"
