@@ -195,6 +195,8 @@ kittens() {
     newtitle="WRITING - $dir"
     echo -n -e "\033]0;$newtitle\007"
     osascript -e "tell application \"Terminal\" to set background color of window 1 to {0,0,0,30000}"
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
     edit --new-window complete_draft.tex NEXT_STEPS.md    
 }
 
@@ -214,4 +216,9 @@ teachMAWH() {
     newtitle="TEACHING - $dir"
     echo -n -e "\033]0;$newtitle\007"
     git pull origin master
+}
+
+# to look for particular strings in all drafts. Good for finding phrases/ideas/etc
+searchdrafts() {
+    grep -r "$@" ~/DISS/drafts/* 2>&1 >/tmp/searchdrafts && vi /tmp/searchdrafts
 }
