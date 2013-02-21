@@ -133,7 +133,6 @@ alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 # srl aliases I like
 
-<<<<<<< HEAD
 alias vb='vim ~/.bashrc && source ~/.bashrc'
 alias sb='source ~/.bashrc'
 alias dh='ssh cliotropic@bluebombers.dreamhost.com'
