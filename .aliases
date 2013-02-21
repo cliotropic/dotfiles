@@ -162,3 +162,4 @@ alias dl='~/bin/dailylog.sh ed'
 #
 alias sync2simmons="rsync -avz --no-g --no-perms '/Users/srl/dissertation/teaching/fall 2010/2010-09 Fall History 140 Simmons College' /Volumes/Users/landrums/"
 
+alias timestamper="date +'## %Y-%m-%d %A:'"
