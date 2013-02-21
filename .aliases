@@ -133,6 +133,7 @@ alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 # srl aliases I like
 
+<<<<<<< HEAD
 alias vb='vim ~/.bashrc && source ~/.bashrc'
 alias sb='source ~/.bashrc'
 alias dh='ssh cliotropic@bluebombers.dreamhost.com'
@@ -162,4 +163,7 @@ alias dl='~/bin/dailylog.sh ed'
 #
 alias sync2simmons="rsync -avz --no-g --no-perms '/Users/srl/dissertation/teaching/fall 2010/2010-09 Fall History 140 Simmons College' /Volumes/Users/landrums/"
 
+alias sb="source ~/.bashrc"
 alias timestamper="date +'## %Y-%m-%d %A:'"
+
+alias teachgollum="pushd ~/teaching/ && gollum & sleep 3 && open http://localhost:4567 && popd"
