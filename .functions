@@ -191,7 +191,7 @@ setloc() {
     if [[ `hostname -f` =~ comcast.net$ ]]; then
         # we're at home
         export TEACHDIR=~/projects/teaching
-    elif [[ `hostname -f` =~ hisa813.fiu.edu$ ]]; then
+    elif [[ `hostname -f` =~ hisa813 ]]; then
         # this is the work imac
         export TEACHDIR=~/projects
     fi
