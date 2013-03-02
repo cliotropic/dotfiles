@@ -187,6 +187,16 @@ title() {
     echo -n -e "\033]0;$title\007"
 }
 
+setloc() {
+    if [[ `hostname -f` =~ comcast.net$ ]]; then
+        # we're at home
+        export TEACHDIR=~/projects/teaching
+    elif [[ `hostname -f` =~ hisa813.fiu.edu$ ]]; then
+        # this is the work imac
+        export TEACHDIR=~/projects
+    fi
+}
+
 # whatever works
 kittens() {
     cd ~/DISS/drafts/kittens
@@ -201,7 +211,8 @@ kittens() {
 }
 
 teach2042() {
-    cd ~/projects/teaching/2042
+    setloc
+    cd $TEACHDIR/2042
     here=`pwd`
     dir=`basename $here`
     newtitle="TEACHING - $dir"
@@ -210,13 +221,20 @@ teach2042() {
 }
 
 teachMAWH() {
-    cd ~/projects/teaching/MAWH
+    setloc
+    cd $TEACHDIR/MAWH
     here=`pwd`
     dir=`basename $here`
     newtitle="TEACHING - $dir"
     echo -n -e "\033]0;$newtitle\007"
     git pull origin master
 }
+
+finishup() {
+    # TODO: expand this to check status for uncommitted files and require commit first
+    git status
+}
+
 
 # to look for particular strings in all drafts. Good for finding phrases/ideas/etc
 searchdrafts() {
