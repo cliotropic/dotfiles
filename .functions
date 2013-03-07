@@ -193,7 +193,7 @@ setloc() {
         export TEACHDIR=~/projects/teaching
     elif [[ `hostname -f` =~ hisa813.fiu.edu$ ]]; then
         # this is the work imac
-        export TEACHDIR=~/projects
+        export TEACHDIR=~/teaching
     fi
 }
 
