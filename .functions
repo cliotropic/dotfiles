@@ -193,7 +193,7 @@ setloc() {
         export TEACHDIR=~/projects/teaching
     elif [[ `hostname -f` =~ hisa813 ]]; then
         # this is the work imac
-        export TEACHDIR=~/projects
+        export TEACHDIR=~/teaching
     fi
 }
 
@@ -217,7 +217,10 @@ teach2042() {
     dir=`basename $here`
     newtitle="TEACHING - $dir"
     echo -n -e "\033]0;$newtitle\007"
-    git pull origin master 
+    git pull origin master
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+    edit --new-window NEXT_STEPS.md 
 }
 
 teachMAWH() {
