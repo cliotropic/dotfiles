@@ -231,6 +231,15 @@ teachMAWH() {
     newtitle="TEACHING - $dir"
     echo -n -e "\033]0;$newtitle\007"
     git pull origin master
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+    edit --new-window NEXT_STEPS.md 
+
+}
+
+stamp() {
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
 }
 
 finishup() {
