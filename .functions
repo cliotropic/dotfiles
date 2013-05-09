@@ -234,8 +234,22 @@ teachMAWH() {
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
     edit --new-window NEXT_STEPS.md 
-
 }
+
+teenagers() {
+    setloc
+    cd $PROJDIR/edited_collection_on_age
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="WRITING - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    git pull origin master
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+    edit --new-window NEXT_STEPS.md essay.md
+}
+
+
 
 stamp() {
     # copy in a timestamp to add to log
