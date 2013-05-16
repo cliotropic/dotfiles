@@ -188,12 +188,14 @@ title() {
 }
 
 setloc() {
-    if [[ `hostname -f` =~ comcast.net$ ]]; then
+    if [[ `hostname -f` =~ comcast.net$ ]] || [[ `hostname -f` =~ cliotrope.local$ ]] || [[ `hostname -f` =~ ^wpc.*.fiu.edu$ ]]; then
         # we're at home
         export TEACHDIR=~/projects/teaching
+        export PROJDIR=~/projects/writing
     elif [[ `hostname -f` =~ hisa813 ]]; then
         # this is the work imac
         export TEACHDIR=~/teaching
+        export PROJDIR=~/projects/writing
     fi
 }
 
