@@ -263,8 +263,12 @@ finishup() {
     git status
 }
 
-
 # to look for particular strings in all drafts. Good for finding phrases/ideas/etc
 searchdrafts() {
     grep -r "$@" ~/DISS/drafts/* 2>&1 >/tmp/searchdrafts && vi /tmp/searchdrafts
+}
+
+# rough count of how many words added to a draft since the last commit.
+newwords() {
+    git diff "$1" |grep -E '^\+' | wc -w
 }
