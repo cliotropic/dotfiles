@@ -1,5 +1,8 @@
 # Make TextWrangler the default editor
-export EDITOR="edit"
+# export EDITOR="edit"
+
+# Make Aquamacs the default editor
+export EDITOR="aquamacs"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
