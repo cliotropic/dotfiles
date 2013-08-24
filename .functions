@@ -209,7 +209,7 @@ kittens() {
     osascript -e "tell application \"Terminal\" to set background color of window 1 to {0,0,0,30000}"
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    edit --new-window complete_draft.tex NEXT_STEPS.md    
+    $EDITOR --new-window complete_draft.tex NEXT_STEPS.md    
 }
 
 teach2042() {
@@ -222,7 +222,7 @@ teach2042() {
     git pull origin master
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    edit --new-window NEXT_STEPS.md 
+    $EDITOR --new-window NEXT_STEPS.md 
 }
 
 teachMAWH() {
@@ -235,8 +235,22 @@ teachMAWH() {
     git pull origin master
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    edit --new-window NEXT_STEPS.md 
+    $EDITOR --new-window NEXT_STEPS.md 
 }
+
+teach4935() {
+    setloc
+    cd $TEACHDIR/SSDH
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="TEACHING - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    git pull origin master
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+    $EDITOR --new-window NEXT_STEPS.md 
+}
+
 
 teenagers() {
     setloc
@@ -248,7 +262,7 @@ teenagers() {
     git pull origin master
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    edit --new-window NEXT_STEPS.md essay.md
+    $EDITOR --new-window NEXT_STEPS.md essay.md
 }
 
 
