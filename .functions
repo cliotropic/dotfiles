@@ -192,10 +192,12 @@ setloc() {
         # we're at home
         export TEACHDIR=~/projects/teaching
         export PROJDIR=~/projects/writing
+        export PORTFOLIODIR=~/projects/promotion
     elif [[ `hostname -f` =~ hisa813 ]]; then
         # this is the work imac
         export TEACHDIR=~/teaching
         export PROJDIR=~/projects/writing
+        export PORTFOLIODIR=~/projects/promotion
     fi
 }
 
@@ -264,6 +266,20 @@ teenagers() {
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
     edit --new-window NEXT_STEPS.md essay.md
+}
+
+
+getpromoted() {
+    setloc
+    cd $PORTFOLIODIR
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="PROMOTION FILE - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    git pull origin master
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+    edit --new-window NEXT_STEPS.md 
 }
 
 
