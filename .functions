@@ -303,3 +303,15 @@ searchdrafts() {
 newwords() {
     git diff "$1" |grep -E '^\+' | wc -w
 }
+
+# print my current ip (eth0)
+myip() {
+	ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}'
+}
+
+# for interacting with iDisplay to deal with remote screen setup on iPad.
+# this assumes that of the 2 iDisplay TCP ports, the second one (even numbered) is always the one to connect to.
+idsetup() {
+	echo 'host: ' `myip`
+	echo 'port: ' `lsof |grep iDisp|grep LISTEN |awk '{print $9}' |sed 's/\*://'|tail -1`
+}
