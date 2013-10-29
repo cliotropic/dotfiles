@@ -29,6 +29,9 @@ export MANPAGER="less -X"
 export EDITOR=edit
 
 export PATH=/opt/perl-5.8.8/bin:/opt/local/bin:/sw/bin:/usr/local/git/bin:$PATH:/usr/local/bin:/usr/local/sbin
+# OS X developer tools, like make
+export PATH=$PATH:/Developer/usr/bin
+
 export PERL5LIB=/Users/srl/lib/perl:/Users/srl/work/bp/jifty/lib:/Users/srl/lib/bp/lib
 
 export GEMSHOME=~/src/mygems
