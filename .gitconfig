@@ -82,7 +82,7 @@
 # --- srl customizations ----
 	        
 [core]
-	editor = /usr/bin/edit -w
+	editor = /usr/local/bin/edit -w
 
 # not sure what this was about, so holding onto it for the future	
 # [remote "cliotropic"]

@@ -192,10 +192,12 @@ setloc() {
         # we're at home
         export TEACHDIR=~/projects/teaching
         export PROJDIR=~/projects/writing
+        export PORTFOLIODIR=~/projects/promotion
     elif [[ `hostname -f` =~ hisa813 ]]; then
         # this is the work imac
         export TEACHDIR=~/teaching
         export PROJDIR=~/projects/writing
+        export PORTFOLIODIR=~/projects/promotion
     fi
 }
 
@@ -224,6 +226,21 @@ teach2042() {
     date +'## %Y-%m-%d %A:'|pbcopy
     $EDITOR --new-window NEXT_STEPS.md 
 }
+
+teach4935() {
+    setloc
+    cd $TEACHDIR/SSDH
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="TEACHING - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    git pull origin master
+    git pull
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+    edit --new-window NEXT_STEPS.md 
+}
+
 
 teachMAWH() {
     setloc
@@ -266,6 +283,20 @@ teenagers() {
 }
 
 
+getpromoted() {
+    setloc
+    cd $PORTFOLIODIR
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="PROMOTION FILE - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    git pull origin master
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+    edit --new-window NEXT_STEPS.md 
+}
+
+
 
 stamp() {
     # copy in a timestamp to add to log
@@ -285,4 +316,16 @@ searchdrafts() {
 # rough count of how many words added to a draft since the last commit.
 newwords() {
     git diff "$1" |grep -E '^\+' | wc -w
+}
+
+# print my current ip (eth0)
+myip() {
+	ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}'
+}
+
+# for interacting with iDisplay to deal with remote screen setup on iPad.
+# this assumes that of the 2 iDisplay TCP ports, the second one (even numbered) is always the one to connect to.
+idsetup() {
+	echo 'host: ' `myip`
+	echo 'port: ' `lsof |grep iDisp|grep LISTEN |awk '{print $9}' |sed 's/\*://'|tail -1`
 }
