@@ -214,6 +214,12 @@ kittens() {
     $EDITOR --new-window complete_draft.tex NEXT_STEPS.md    
 }
 
+dbs() { # dissertation brainstorm
+    cd ~/DISS/drafts/kittens
+    TODAY=`date +'%Y%m%d'`
+    edit "working_docs/brainstorm-$TODAY.md"
+}
+
 teach2042() {
     setloc
     cd $TEACHDIR/2042
