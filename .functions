@@ -220,9 +220,9 @@ dbs() { # dissertation brainstorm
     edit "working_docs/brainstorm-$TODAY.md"
 }
 
-teach2042() {
+teach2042R() {
     setloc
-    cd $TEACHDIR/2042
+    cd $TEACHDIR/AMH2042-RVC
     here=`pwd`
     dir=`basename $here`
     newtitle="TEACHING - $dir"
@@ -232,6 +232,21 @@ teach2042() {
     date +'## %Y-%m-%d %A:'|pbcopy
     $EDITOR --new-window NEXT_STEPS.md 
 }
+
+teach2042U() {
+    setloc
+    cd $TEACHDIR/AMH2042-U02
+    here=`pwd`
+    dir=`basename $here`
+    newtitle="TEACHING - $dir"
+    echo -n -e "\033]0;$newtitle\007"
+    git pull origin master
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+    $EDITOR --new-window NEXT_STEPS.md 
+}
+
+
 
 teach4935() {
     setloc
