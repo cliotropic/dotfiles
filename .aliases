@@ -166,3 +166,5 @@ alias sb="source ~/.bashrc"
 alias timestamper="date +'## %Y-%m-%d %A:'"
 
 alias teachgollum="pushd ~/teaching/ && gollum & sleep 3 && open http://localhost:4567 && popd"
+
+alias mou="open -a /Applications/Mou.app $@"
