@@ -326,7 +326,14 @@ getpromoted() {
     edit --new-window NEXT_STEPS.md 
 }
 
+function mdclip {
+	pandoc $1 -t html |pbcopy
+}
 
+function word {
+	open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Word.app/ $1
+}
+ 
 
 stamp() {
     # copy in a timestamp to add to log
