@@ -229,6 +229,16 @@ dbsr() { # rename dissertation brainstorm once it has a title
     mv $NAME $NEWNAME
 }
 
+ndbs() { # dissertation brainstorm, with rename of existing first.
+    cd ~/DISS/drafts/kittens
+    dbsr
+    TODAY=`date +'%Y%m%d'`
+    edit "working_docs/brainstorm-$TODAY.md"
+}
+
+
+
+
 teach2042R() {
     setloc
     cd $TEACHDIR/AMH2042-RVC
@@ -366,3 +376,5 @@ idsetup() {
 	echo 'host: ' `myip`
 	echo 'port: ' `lsof |grep iDisp|grep LISTEN |awk '{print $9}' |sed 's/\*://'|tail -1`
 }
+
+
