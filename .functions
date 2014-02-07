@@ -381,7 +381,7 @@ LOGPATH=./logs
 DAILYLOG=`date "+dailylog_%Y-%m-%d.md"`
 LOGFILE=$LOGPATH/$DAILYLOG
 
-PROJECT_LOG=NEXT_STEPS.md
+PROJECT_LOG=JOURNAL.md
 
 stamp() {
     # copy in a timestamp to add to log
@@ -402,8 +402,10 @@ prepend_log_stamp () {
 
 plog () {
 	# Adds a date stamp to the project log in the current path.
-	# TO DO: log stamp substitution for places that have a top-bound task list,
-	# 		 as with existing NEXT_STEPS files.
+	# TO DO:
+	#  * log stamp substitution for places that have a top-bound task list,
+	# 		as with existing NEXT_STEPS files.
+	#  * add support for a .logname file in projects which specifies the local filename.
 	if [ -e $PROJECT_LOG ]
 	then
 		prepend_log_stamp $PROJECT_LOG
