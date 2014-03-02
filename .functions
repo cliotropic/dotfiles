@@ -345,11 +345,6 @@ function word {
 }
  
 
-stamp() {
-    # copy in a timestamp to add to log
-    date +'## %Y-%m-%d %A:'|pbcopy
-}
-
 finishup() {
     # TODO: expand this to check status for uncommitted files and require commit first
     git status
@@ -387,3 +382,79 @@ ris2bib() {
     OUTFILE=`echo $1 |sed 's/\.ris$/.bib/'`
     cat $1 | ris2xml | xml2bib > $OUTFILE
 }
+
+
+# Project logs:
+
+LOGPATH=./logs
+DAILYLOG=`date "+dailylog_%Y-%m-%d.md"`
+LOGFILE=$LOGPATH/$DAILYLOG
+
+PROJECT_LOG=JOURNAL.md
+
+stamp() {
+    # copy in a timestamp to add to log
+    date +'## %Y-%m-%d %A:'|pbcopy
+}
+
+getstamp() {
+	stamp
+	pbpaste
+}
+
+prepend_log_stamp () {
+	TMP=/tmp/foo.log
+	getstamp > $TMP && printf "\n\n" >> $TMP && cat $1 >> $TMP 
+	mv $1 $1.bak
+	mv $TMP $1
+}
+
+plog () {
+	# Adds a date stamp to the project log in the current path.
+	# TO DO:
+	#  * log stamp substitution for places that have a top-bound task list,
+	# 		as with existing NEXT_STEPS files.
+	#  * add support for a .logname file in projects which specifies the local filename.
+	if [ -e $PROJECT_LOG ]
+	then
+		prepend_log_stamp $PROJECT_LOG
+	else
+		echo "No log file $PROJECT_LOG; Please create one"
+		# Just to keep from doing something silly.
+	fi
+}
+
+
+# Commented out for future use
+# 
+# mklog () {
+# 	# make a log file. Keep it on Dropbox, with a hard link to the other
+# 	# logs directory.
+# 	if ! [ -e $LOGFILE ]	
+# 	then
+# 		~/bin/makelog.py > $LOGFILE
+# 	fi
+# }
+# 
+# rmlog () {
+# 	# remove log file. 
+# 	if [ -e $LOGFILE ]	
+# 	then
+# 		rm -iv $LOGFILE
+# 	fi
+# }
+# 
+# edlog () {
+# 	# edit the daily log file; create it if it doesn't exist.
+# 	if ! [ -e $LOGFILE ]	
+# 	then
+# 		mklog
+# 	fi
+# 	open -a "TextWrangler.app" $SHAREDFILE
+# 
+# }
+
+
+
+
+
