@@ -224,7 +224,7 @@ dbsr() { # rename dissertation brainstorm once it has a title
     cd ~/DISS/drafts/kittens
     TODAY=`date +'%Y%m%d'`
     NAME="working_docs/brainstorm-$TODAY.md"
-    TITLESTRING=`head -1 $NAME |sed 's/[#%] //'|gsed -e 's/./\L\0/g'|sed 's/ /_/g'`
+    TITLESTRING=`head -1 $NAME |sed 's/[#%] //'|gsed -e 's/./\L\0/g'|sed 's/[ ,:]/_/g'`
     NEWNAME="working_docs/brainstorm-$TODAY-$TITLESTRING.md"
     mv $NAME $NEWNAME
 }
@@ -378,3 +378,12 @@ idsetup() {
 }
 
 
+# Thanks, http://draketo.de/light/english/emacs/convert-ris-citations-bibtex-bibutils 
+ris2bibclip() {
+    cat $1 | ris2xml | xml2bib |pbcopy
+}
+
+ris2bib() {
+    OUTFILE=`echo $1 |sed 's/\.ris$/.bib/'`
+    cat $1 | ris2xml | xml2bib > $OUTFILE
+}

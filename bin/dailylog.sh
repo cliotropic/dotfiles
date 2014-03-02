@@ -41,7 +41,7 @@ edl () {
 	then
 		mkdl
 	fi
-	open -a "TextWrangler.app" $SHAREDFILE
+	edit $SHAREDFILE
 
 }
 
