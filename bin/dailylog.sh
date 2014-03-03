@@ -41,7 +41,7 @@ edl () {
 	then
 		mkdl
 	fi
-	edit $SHAREDFILE
+	$EDITOR $SHAREDFILE
 
 }
 
