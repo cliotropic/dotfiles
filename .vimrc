@@ -143,3 +143,5 @@ if has("autocmd")
 endif
 
 let g:auto_save = 1  " enable AutoSave on Vim startup
+
+set foldlevelstart=20 " open all folds, see http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
