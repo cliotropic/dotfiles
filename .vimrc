@@ -29,6 +29,8 @@ Bundle 'git://git.wincent.com/command-t.git'
 " Bundle 'file:///home/gmarik/path/to/plugin'
 " git-markdown https://github.com/plasticboy/vim-markdown
 Bundle 'plasticboy/vim-markdown'
+" vim auto save
+Bundle '907th/vim-auto-save'
 " ...
 
 
@@ -139,3 +141,5 @@ if has("autocmd")
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
+
+let g:auto_save = 1  " enable AutoSave on Vim startup
