@@ -8,6 +8,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/Library/Frameworks/Mapnik.framework/Programs:$PATH
 export PYTHONPATH=/Library/Frameworks/Mapnik.framework/Python:$PYTHONPATH
 
+# Local ruby gem binaries, like t (https://github.com/sferik/t)
+export PATH=$PATH:~/.gem/ruby/1.9.1/bin
 
 
 
