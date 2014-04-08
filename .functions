@@ -211,13 +211,13 @@ kittens() {
     osascript -e "tell application \"Terminal\" to set background color of window 1 to {0,0,0,30000}"
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    $EDITOR --new-window complete_draft.tex NEXT_STEPS.md    
+    $VISUAL complete_draft.tex NEXT_STEPS.md    
 }
 
 dbs() { # dissertation brainstorm
     cd ~/DISS/drafts/kittens
     TODAY=`date +'%Y%m%d'`
-    edit "working_docs/brainstorm-$TODAY.md"
+    $EDITOR "working_docs/brainstorm-$TODAY.md"
 }
 
 dbsr() { # rename dissertation brainstorm once it has a title
@@ -236,7 +236,14 @@ ndbs() { # dissertation brainstorm, with rename of existing first.
     edit "working_docs/brainstorm-$TODAY.md"
 }
 
-
+dbsc() { # dissertation brainstorm; copy text of most recent to clipboard
+    pushd ~/DISS/drafts/kittens
+    FOO=working_docs
+    BAR=$FOO/`ls -t $FOO|head -1`
+    # This is markdown; might want to make a version that TeXes this.
+    cat $BAR|pbcopy
+    popd
+}
 
 
 teach2042R() {
@@ -249,7 +256,7 @@ teach2042R() {
     git pull origin master
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    $EDITOR --new-window NEXT_STEPS.md 
+    $VISUAL --new-window NEXT_STEPS.md 
 }
 
 teach2042U() {
@@ -262,7 +269,7 @@ teach2042U() {
     git pull origin master
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    $EDITOR --new-window NEXT_STEPS.md 
+    $VISUAL --new-window NEXT_STEPS.md 
 }
 
 
@@ -292,7 +299,7 @@ teachMAWH() {
     git pull origin master
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    $EDITOR --new-window NEXT_STEPS.md 
+    $VISUAL --new-window NEXT_STEPS.md 
 }
 
 teach4935() {
@@ -305,7 +312,7 @@ teach4935() {
     git pull origin master
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    $EDITOR --new-window NEXT_STEPS.md 
+    $VISUAL --new-window NEXT_STEPS.md 
 }
 
 
@@ -319,7 +326,7 @@ teenagers() {
     git pull origin master
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
-    $EDITOR --new-window NEXT_STEPS.md essay.md
+    $VISUAL --new-window NEXT_STEPS.md essay.md
 }
 
 
