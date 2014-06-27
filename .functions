@@ -208,7 +208,7 @@ kittens() {
     dir=`basename $here`
     newtitle="WRITING - $dir"
     echo -n -e "\033]0;$newtitle\007"
-    osascript -e "tell application \"Terminal\" to set background color of window 1 to {0,0,0,30000}"
+    #osascript -e "tell application \"Terminal\" to set background color of window 1 to {0,0,0,30000}"
     # copy in a timestamp to add to log
     date +'## %Y-%m-%d %A:'|pbcopy
     $EDITOR --new-window complete_draft.tex NEXT_STEPS.md    
@@ -409,12 +409,17 @@ plog () {
 	if [ -e $PROJECT_LOG ]
 	then
 		prepend_log_stamp $PROJECT_LOG
+		edit $PROJECT_LOG
 	else
 		echo "No log file $PROJECT_LOG; Please create one"
 		# Just to keep from doing something silly.
 	fi
 }
 
+kz () {
+	# kills Zotero standalone. Ugh.
+	ps auxww |grep Zotero.app|grep -v grep|head -1|awk '{print $2}'|xargs kill
+}
 
 # Commented out for future use
 # 
